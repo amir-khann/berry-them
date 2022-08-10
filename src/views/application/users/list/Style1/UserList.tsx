@@ -1,7 +1,7 @@
 import React from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 import {
     Chip,
     Grid,
@@ -22,7 +22,8 @@ import Avatar from 'ui-component/extended/Avatar';
 import { UserProfile } from 'types/user-profile';
 import { useDispatch, useSelector } from 'store';
 import { getUsersListStyle1 } from 'store/slices/user';
-
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
 // assets
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
@@ -32,8 +33,16 @@ const avatarImage = require.context('assets/images/profile', true);
 
 // ==============================|| USER LIST 1 ||============================== //
 
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary
+}));
+
 const UserList = () => {
-    const theme = useTheme();
+    // const theme = styled();
     const dispatch = useDispatch();
 
     const [data, setData] = React.useState<UserProfile[]>([]);
@@ -91,7 +100,12 @@ const UserList = () => {
                                 <TableCell>{row.friends}</TableCell>
                                 <TableCell>{row.followers}</TableCell>
                                 <TableCell>
-                                    {row.status === 'Active' && (
+                                    <Stack direction="row" spacing={2}>
+                                        <Item>Item 1</Item>
+                                        <Item>Item 2</Item>
+                                        <Item>Item 3</Item>
+                                    </Stack>
+                                    {/* {row.status === 'Active' && (
                                         <Chip
                                             label="Active"
                                             size="small"
@@ -127,7 +141,7 @@ const UserList = () => {
                                                 color: theme.palette.warning.dark
                                             }}
                                         />
-                                    )}
+                                    )} */}
                                 </TableCell>
                                 <TableCell align="center" sx={{ pr: 3 }}>
                                     <Stack direction="row" justifyContent="center" alignItems="center">
@@ -139,11 +153,11 @@ const UserList = () => {
                                         <Tooltip placement="top" title="Block">
                                             <IconButton
                                                 color="primary"
-                                                sx={{
-                                                    color: theme.palette.orange.dark,
-                                                    borderColor: theme.palette.orange.main,
-                                                    '&:hover ': { background: theme.palette.orange.light }
-                                                }}
+                                                // sx={{
+                                                //     color: theme.palette.orange.dark,
+                                                //     borderColor: theme.palette.orange.main,
+                                                //     '&:hover ': { background: theme.palette.orange.light }
+                                                // }}
                                                 size="large"
                                             >
                                                 <BlockTwoToneIcon sx={{ fontSize: '1.1rem' }} />

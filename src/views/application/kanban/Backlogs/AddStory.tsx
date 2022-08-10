@@ -267,13 +267,13 @@ const AddStory = ({ open, handleDrawerOpen }: Props) => {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} sm={8}>
                                     <Grid container alignItems="center" spacing={2}>
                                         <Grid item xs={12} sm={4}>
                                             <Typography variant="subtitle1">State:</Typography>
                                         </Grid>
                                         <Grid item xs={12} sm={8}>
-                                            <FormControl fullWidth sx={{ m: 1 }}>
+                                            <FormControl fullWidth>
                                                 <Select
                                                     id="columnId"
                                                     name="columnId"
@@ -292,6 +292,7 @@ const AddStory = ({ open, handleDrawerOpen }: Props) => {
                                         </Grid>
                                     </Grid>
                                 </Grid>
+
                                 <Grid item xs={12}>
                                     <Grid container alignItems="center" spacing={2}>
                                         <Grid item xs={12} sm={4}>
